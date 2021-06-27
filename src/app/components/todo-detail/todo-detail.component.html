@@ -1,0 +1,37 @@
+<p>todo-detail works!</p>
+
+<form (submit)="onSubmit(formDetail)" #formDetail="ngForm">
+  <label>Id: {{ todo.id }}</label>
+  <br />
+  <label for="name">Name: </label>
+  <br />
+  <input
+    id="name"
+    #name="ngModel"
+    [(ngModel)]="todo.name"
+    name="name"
+    required
+    pattern="[a-zA-Z]*"
+  />
+  <div>
+    <span class="text-danger" *ngIf="name.errors?.required && name.touched"
+      >*name is required</span
+    >
+    <span
+      class="text-danger"
+      *ngIf="name.errors?.pattern !== null && name.touched"
+      >[a-zA-Z]</span
+    >
+  </div>
+  <label for="status">Status</label>
+  <div class="form-check form-switch">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [(ngModel)]="todo.status"
+      name="status"
+    />
+  </div>
+  <button>Submit</button>
+</form>
+<!-- <input [(ngModel)]="todo.name" /> -->

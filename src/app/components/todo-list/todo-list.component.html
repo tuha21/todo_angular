@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todoList">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.name }}</td>
+      <td>{{ todo.status }}</td>
+      <td>
+        <a routerLink="/tododetail/{{ todo.id }}">edit</a>
+        <a (click)="onDelete(todo.id)" routerLink="/todolist">delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
